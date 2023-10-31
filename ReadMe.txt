@@ -1,0 +1,1 @@
+This repository is created to deploy a cloudfunction which pulls the txt files from storage bucket and pushes the content into the pubsub.
