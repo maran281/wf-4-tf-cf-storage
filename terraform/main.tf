@@ -16,7 +16,7 @@ resource "google_storage_bucket_object" "tf_bucket_object" {
 
 resource "google_cloudfunctions_function" "tf_cloud_funct" {
     name = "my_funct"
-    runtime = "Python"
+    runtime = "python"
     source_archive_bucket = google_storage_bucket.tf_storage_bucket.name
     source_archive_object = google_storage_bucket_object.tf_bucket_object.name
 
