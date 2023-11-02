@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-    get-secrets:
+    deploy-my-mloudFunction:
         runs-on: ubuntu-latest
         permissions: 
             contents: 'read'
