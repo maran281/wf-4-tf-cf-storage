@@ -28,7 +28,7 @@ resource "google_cloudfunctions_function" "tf_cloud_funct" {
 resource "google_cloudfunctions_function_iam_member" "invoker" {
   cloud_function = google_cloudfunctions_function.tf_cloud_funct.name
   role = "roles/cloudfunctions.invoker"
-  member = "allIsers"
+  member = "allUsers"
 }
 
 #comment
