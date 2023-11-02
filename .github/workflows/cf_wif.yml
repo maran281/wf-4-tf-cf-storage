@@ -1,0 +1,36 @@
+name: "Deploy the cloud function"
+
+on:
+    push: 
+        branches: 
+            - main
+
+jobs:
+    get-secrets:
+        runs-on: ubuntu-latest
+        permissions: 
+            contents: 'read'
+            id-token: 'write'
+        
+        steps:
+            - name: Checkout my code
+              uses: actions/checkout@v3
+
+            #Below step is used to authenticate the githuactions with GCP via WIF
+            - id: 'auth'
+              name: 'Authenticate to manoj google project'
+              uses: 'google-github-actions/auth@v1'
+              with:
+                  token_format: 'access_token'
+                  workload_identity_provider: 'projects/768624397534/locations/global/workloadIdentityPools/mypoolid3/providers/myproviderid3'
+                  service_account: my-cloudfunction-sa@manojproject1-396309.iam.gserviceaccount.com
+
+            #Below step is to initialize cloud SDK
+            - name: 'Setup my cloud SDK'
+              uses: 'google-github-actions/setup-gcloud@v1'
+            
+            - name: 'Initialize the terraform'
+              run: |
+                cd terraform
+                terraform init
+                terraform apply -auto-approve
