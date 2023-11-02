@@ -5,7 +5,7 @@ provider "google" {
 
 resource "google_storage_bucket" "tf_storage_bucket" {
   name = "my_bucket1"
-  location = "use-east1"
+  location = "us-east1"
 }
 
 resource "google_storage_bucket_object" "tf_bucket_object" {
