@@ -20,3 +20,5 @@ resource "google_cloudfunctions_function" "tf_cloud_funct" {
     source_archive_bucket = google_storage_bucket.tf_storage_bucket.name
     source_archive_object = google_storage_bucket_object.tf_bucket_object.name
 }
+
+#comment
