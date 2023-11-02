@@ -4,7 +4,7 @@ provider "google" {
 }
 
 resource "google_storage_bucket" "tf_storage_bucket" {
-  name = "my_bucket1"
+  name = "my_bucket_4_cf_poc"
   location = "us-east1"
 }
 
