@@ -3,6 +3,13 @@ provider "google" {
   region = "us-east1"
 }
 
+terraform {
+  backend "gcs" {
+    bucket = "tf_statebucket_1"   
+    prefix = "tf_statebucket_1"
+  }
+}
+
 resource "google_storage_bucket" "tf_storage_bucket" {
   name = "my_bucket_4_cf_poc2"
   location = "us-east1"
