@@ -9,9 +9,9 @@ resource "google_storage_bucket" "tf_storage_bucket" {
 }
 
 resource "google_storage_bucket_object" "tf_bucket_object" {
-  name = "index.zip"
+  name = "main.zip"
   bucket = google_storage_bucket.tf_storage_bucket.name
-  source = "myapp.zip"
+  source = "main.zip"
 }
 
 resource "google_cloudfunctions_function" "tf_cloud_funct" {
