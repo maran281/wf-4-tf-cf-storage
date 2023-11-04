@@ -3,6 +3,8 @@ provider "google" {
   region = "us-east1"
 }
 
+provider "archive" {}
+
 terraform {
   backend "gcs" {
     bucket = "tf_statebucket_1"   
@@ -18,6 +20,12 @@ resource "google_storage_bucket" "source_bucket_4cf" {
 resource "google_storage_bucket" "tf_storage_bucket" {
   name = "my_bucket_4_cf_poc2"
   location = "us-east1"
+}
+
+resource "archive_file" "make_zip" {
+  type = "zip"
+  source_file = "../code/main.py"
+  output_path = "../code/main.zip"
 }
 
 resource "google_storage_bucket_object" "tf_bucket_object" {
