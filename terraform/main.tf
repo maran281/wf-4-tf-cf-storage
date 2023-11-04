@@ -20,13 +20,6 @@ resource "google_storage_bucket" "tf_storage_bucket" {
   location = "us-east1"
 }
 
-resource "zipper_file" "make_zip" {
-  type = "zip"
-  source_file = "../code/main.py"
-  output_path = "../code/main.zip"
-  not_when_nonexists = false
-}
-
 resource "google_storage_bucket_object" "tf_bucket_object" {
   name = "main.zip"
   bucket = google_storage_bucket.tf_storage_bucket.name
