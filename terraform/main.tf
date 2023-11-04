@@ -10,11 +10,14 @@ terraform {
   }
 }
 
+
+#This bucket will contain the file, which will be picked by cloud function
 resource "google_storage_bucket" "source_bucket_4cf" {
   name = "source_bucket_for_cf_1"
   location = "us-east1"
 }
 
+#This bucket will contain the code file which will be used as cloud function code
 resource "google_storage_bucket" "tf_storage_bucket" {
   name = "my_bucket_4_cf_poc2"
   location = "us-east1"
