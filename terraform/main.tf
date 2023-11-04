@@ -19,11 +19,11 @@ resource "google_storage_bucket" "tf_storage_bucket" {
   name = "my_bucket_4_cf_poc2"
   location = "us-east1"
 }
- 
+
 resource "google_storage_bucket_object" "tf_bucket_object" {
   name = "main.zip"
   bucket = google_storage_bucket.tf_storage_bucket.name
-  source = "main.zip"
+  source = "/wf-4-tf-cf-storage/code/main.zip"
 }
 
 resource "google_cloudfunctions_function" "tf_cloud_funct" {
