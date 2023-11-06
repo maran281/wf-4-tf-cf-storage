@@ -1,0 +1,3 @@
+functions-framework
+requests==2.20.0
+numpy
