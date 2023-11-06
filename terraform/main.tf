@@ -48,6 +48,27 @@ resource "google_cloudfunctions_function" "tf_cloud_funct" {
 
 }
 
+
+
+# Add a null_resource to taint the Google Compute Instance
+resource "null_resource" "taint_instance" {
+  triggers = {
+    instance_id = google_cloudfunctions_function.tf_cloud_funct.id
+  }
+
+  # Use the "local-exec" provisioner to execute the taint command
+  provisioner "local-exec" {
+    command = "terraform taint google_compute_instance.tf_cloud_funct"
+  }
+}
+
+# Note: Include other resource configurations as needed...
+
+# Execute the taint_instance resource before applying
+resource "null_resource" "apply" {
+  depends_on = [null_resource.taint_instance]
+}
+
 resource "google_cloudfunctions_function_iam_member" "invoker" {
   cloud_function = google_cloudfunctions_function.tf_cloud_funct.name
   role = "roles/cloudfunctions.invoker"
