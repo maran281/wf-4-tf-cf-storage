@@ -5,11 +5,10 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    bucket = "tf_statebucket"   
-    prefix = "tf_statebucket"
+    bucket = "tf_statebucket_m"   
+    prefix = "tf_statebucket_m"
   }
 }
-
 
 #This bucket will contain the file, which will be picked by cloud function
 resource "google_storage_bucket" "source_bucket_4cf" {
