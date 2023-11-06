@@ -38,7 +38,14 @@ resource "google_cloudfunctions_function" "tf_cloud_funct" {
     timeout = 60
     entry_point = "hello_world"
 
-    depends_on = [ google_storage_bucket_object.tf_bucket_object ]
+    /* depends_on = [ google_storage_bucket_object.tf_bucket_object ] */
+
+    # Add the "lifecycle" block to control resource replacement
+    lifecycle {
+    # Taint the resource to force replacement
+    prevent_destroy = false
+    }
+
 }
 
 resource "google_cloudfunctions_function_iam_member" "invoker" {
