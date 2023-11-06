@@ -12,13 +12,13 @@ terraform {
 
 #This bucket will contain the file, which will be picked by cloud function
 resource "google_storage_bucket" "source_bucket_4cf" {
-  name = "cf_code_bucket_m"
+  name = "source_file_bucket_m1"
   location = "us-east1"
 }
 
 #This bucket will contain the code file which will be used as cloud function code
 resource "google_storage_bucket" "tf_storage_bucket" {
-  name = "source_file_bucket_m"
+  name = "cf_code_bucket_m1"
   location = "us-east1"
 }
 
@@ -29,7 +29,7 @@ resource "google_storage_bucket_object" "tf_bucket_object" {
 }
 
 resource "google_cloudfunctions_function" "tf_cloud_funct" {
-    name = "my_funct"
+    name = "my_funct_1"
     runtime = "python310"
     source_archive_bucket = google_storage_bucket.tf_storage_bucket.name
     source_archive_object = google_storage_bucket_object.tf_bucket_object.name
