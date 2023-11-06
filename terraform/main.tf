@@ -33,10 +33,12 @@ resource "google_cloudfunctions_function" "tf_cloud_funct" {
     runtime = "python310"
     source_archive_bucket = google_storage_bucket.tf_storage_bucket.name
     source_archive_object = google_storage_bucket_object.tf_bucket_object.name
-
+    
     trigger_http = true
     timeout = 60
     entry_point = "hello_world"
+
+    depends_on = [ google_storage_bucket_object.tf_bucket_object ]
 }
 
 resource "google_cloudfunctions_function_iam_member" "invoker" {
