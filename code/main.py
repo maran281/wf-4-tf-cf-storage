@@ -10,7 +10,7 @@ def hello_world(request):
     bucket_name = "source_bucket_for_cf_1"
     print("debug line 2")
     file_name = "test.json"
-
+ 
     print("debug line 3")
     
     storage_client = storage.Client()
