@@ -1,3 +1,4 @@
+import functions_framework
 from google.cloud import storage
 
 @functions_framework.http
