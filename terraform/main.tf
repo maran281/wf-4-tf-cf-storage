@@ -27,7 +27,7 @@ resource "google_storage_bucket_object" "tf_bucket_object" {
   bucket = google_storage_bucket.tf_storage_bucket.name
   source = "../code/main.zip"
 }
-
+ 
 resource "google_cloudfunctions_function" "tf_cloud_funct" {
     name = "my_funct_1"
     runtime = "python310"
