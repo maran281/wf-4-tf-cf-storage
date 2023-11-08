@@ -32,6 +32,8 @@ jobs:
             - name: 'Initialize the terraform'
               run: |
                 cd terraform
+
                 terraform init
+                terraform taint google_cloudfunctions_function.tf_cloud_funct
                 terraform apply -auto-approve
 
