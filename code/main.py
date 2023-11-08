@@ -18,7 +18,7 @@ def hello_world(request):
     # Delete the original source blob (optional)
     source_blob.delete()
 
-    print(f"File '{test.json}' has been renamed to '{test_completed.json}' in bucket '{source_file_bucket_m}'.")
+    print(f"File has been renamed .")
 
     #test
     return 'Task completed'
