@@ -8,7 +8,7 @@ def hello_world(request):
     storage_client = storage.Client()
 
     # Get a reference to the source blob (file) you want to rename
-    source_bucket = storage_client.get_bucket('source_file_bucket_m2')
+    source_bucket = storage_client.get_bucket('trigger_file_bucket1')
     source_blob = source_bucket.blob('test.json')
 
     # Copy the source blob to the destination with a new name
