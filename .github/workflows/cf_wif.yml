@@ -36,6 +36,5 @@ jobs:
                 terraform init
                 terraform apply -auto-approve
                 terraform taint google_cloudfunctions_function.tf_cloud_funct
-                terraform destroy -auto-approve
 
                 
