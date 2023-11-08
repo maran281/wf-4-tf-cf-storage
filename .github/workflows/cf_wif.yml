@@ -36,6 +36,6 @@ jobs:
                 terraform init
                 terraform apply -auto-approve
                 terraform taint google_cloudfunctions_function.tf_cloud_funct
-                terraform destroy -target=google_storage_bucket.source_bucket_4_cf2
+                terraform destroy -target=google_storage_bucket.source_bucket_4_cf2 -auto-approve
 
                 
