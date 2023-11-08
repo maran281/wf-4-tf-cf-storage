@@ -34,7 +34,6 @@ jobs:
                 cd terraform
 
                 terraform init
-                terraform plan
-                terraform taint google_cloudfunctions_function.tf_cloud_funct
                 terraform apply -auto-approve
+                terraform taint google_cloudfunctions_function.tf_cloud_funct
 
