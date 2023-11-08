@@ -11,7 +11,14 @@ terraform {
 }
 
 #This bucket will contain the file, which will be picked by cloud function
-resource "google_storage_bucket" "source_bucket_4cf2" {
+resource "google_storage_bucket" "source_bucket_4cf" {
+  name = "source_file_bucket_m1"
+  location = "us-east1"
+  force_destroy = true
+}
+
+#This bucket will contain the file, which will be picked by cloud function
+resource "google_storage_bucket" "source_bucket_4cf" {
   name = "source_file_bucket_m2"
   location = "us-east1"
 }
