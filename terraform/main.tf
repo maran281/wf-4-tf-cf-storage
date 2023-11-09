@@ -16,12 +16,12 @@ resource "google_storage_bucket" "source_bucket_4_cf1" {
   location = "us-east1"
 }
 
-#This bucket will be delete, we are using it for testing purpose
+/* #This bucket will be delete, we are using it for testing purpose
 resource "google_storage_bucket" "source_bucket_4_cf2" {
   name = "trigger_file_bucket10"
   location = "us-east1"
   #force_destroy = true
-}
+} */
 
 #This bucket will contain the code file which will be used as cloud function code
 resource "google_storage_bucket" "tf_storage_bucket" {
