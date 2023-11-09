@@ -14,21 +14,19 @@ terraform {
 resource "google_storage_bucket" "source_bucket_4_cf1" {
   name = "trigger_file_bucket1"
   location = "us-east1"
-  force_destroy = false
 }
 
-#This bucket will contain the file, which will be picked by cloud function
+#This bucket will be delete, we are using it for testing purpose
 resource "google_storage_bucket" "source_bucket_4_cf2" {
-  name = "trigger_file_bucket2"
+  name = "trigger_file_bucket10"
   location = "us-east1"
-  force_destroy = true
+  #force_destroy = true
 }
 
 #This bucket will contain the code file which will be used as cloud function code
 resource "google_storage_bucket" "tf_storage_bucket" {
   name = "cf_code_bucket1"
   location = "us-east1"
-  force_destroy = false
 }
 
 resource "google_storage_bucket_object" "tf_bucket_object" {
