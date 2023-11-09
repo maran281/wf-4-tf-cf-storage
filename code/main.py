@@ -2,7 +2,7 @@
 from google.cloud import storage
  """
 @functions_framework.http
- 
+
 def hello_world(request):
     # Initialize a Cloud Storage client
     storage_client = storage.Client()
