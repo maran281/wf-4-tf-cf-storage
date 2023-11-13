@@ -9,7 +9,13 @@ jobs:
     deploy-my-mloudFunction:
         runs-on: ubuntu-latest
         permissions: 
+          #below code gives permission to workfliow to read the content of the repositories
+          #actions/checkout@v3 wouldnt work without this permission. by default its 'read'
             contents: 'read'
+          #below code is used to authorize the workflow to perform write actions, such as 
+          #initializing and applying changes using Terraform. It's particularly important 
+          #when interacting with external services or APIs, like Google Cloud, where the 
+          #workflow needs to authenticate and make changes.
             id-token: 'write'
         
         steps:
