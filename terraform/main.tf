@@ -9,7 +9,7 @@ terraform {
     prefix = "terraform_state_m1"
   }
 }
- 
+  
 #This bucket will contain the file, which will be picked by cloud function
 resource "google_storage_bucket" "source_bucket_4_cf1" {
   name = "trigger_file_bucket1"
