@@ -1,18 +1,18 @@
 provider "google" {
-  project = "manojproject1-396309"
+  project = "plated-hash-405319"
   region = "us-east1"
 }
 
 terraform {
   backend "gcs" {
-    bucket = "terraform_state_m1"   
-    prefix = "terraform_state_m1"
+    bucket = "terraform_state_4_storage_cf_poc"   
+    prefix = "terraform_state_4_storage_cf_poc"
   }
 }
  
 #This bucket will contain the file, which will be picked by cloud function
 resource "google_storage_bucket" "source_bucket_4_cf1" {
-  name = "trigger_file_bucket1"
+  name = "source_bucket_4_storage_cf_poc"
   location = "us-east1"
 }
 
@@ -25,7 +25,7 @@ resource "google_storage_bucket" "source_bucket_4_cf2" {
 
 #This bucket will contain the code file which will be used as cloud function code
 resource "google_storage_bucket" "tf_storage_bucket" {
-  name = "cf_code_bucket1"
+  name = "code_bucket_4_storage_cf_poc"
   location = "us-east1"
 }
 
